@@ -1,0 +1,16 @@
+<div class="col-md-4">
+    <div class="container-fluid">   
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>                      
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="editorial in editorialsRecords">
+                    <td id="{{$index}}-name"><a ui-sref="editorialDetail({editorialsId: editorial.id})">{{editorial.name}}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

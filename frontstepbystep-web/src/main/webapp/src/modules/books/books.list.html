@@ -1,0 +1,18 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2" ng-repeat="book in booksRecords">
+            <div class="thumbnail">
+                <a ui-sref="bookDetail({bookId: book.id})">                    
+                    <img class="img-responsive" ng-src='{{book.image}}' alt="{{book.name}}" />                  
+                </a>
+                <div class="caption text-center">
+                    <p>{{book.name}}</p>
+                    <p ng-repeat="author in book.authors">
+                        <a ui-sref="authorDetail({authorId: author.id})" class="thumb">{{author.name}}</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

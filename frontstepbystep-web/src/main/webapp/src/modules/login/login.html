@@ -1,0 +1,18 @@
+<div class="container">
+    <form class="form-signin" ng-submit="autenticar()">
+        <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
+        <h1 class="form-signin-heading text-muted">Sign In</h1>
+        <input type="text" class="form-control" placeholder="Username" required="" autofocus="" ng-model="username">
+        <input type="password" class="form-control" placeholder="Password" required="" ng-model="password">
+        <select class="form-control" name="singleSelect" id="singleSelect" ng-model="rol" required="true">
+            <option value="">--- Please select rol ---</option> <!-- not selected / blank option -->
+            <option value="admin">Admin</option>
+            <option value="guest">Guest</option>
+        </select>
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">
+            Sign In
+        </button>
+        <a class="btn btn-lg btn-primary btn-block" ui-sref="booksList">Cancel</a>
+    </form>
+</div>
