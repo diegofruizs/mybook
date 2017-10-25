@@ -5,22 +5,6 @@
             var basePath = 'src/modules/authors/';
             var basePathBooks = 'src/modules/books/';
             $urlRouterProvider.otherwise("/authorsList");
-
-            /**
-             * Helper auth functions
-             */
-
-            var loginRequired = ['$q', '$location', '$rootScope', function ($q, $location, $rootScope) {
-                    var deferred = $q.defer();
-                    if ($rootScope.isAuthenticated()) {
-                        deferred.resolve();
-                    } else {
-                        $location.path('/login');
-                    }
-                    return deferred.promise;
-                }];
-
-
             $stateProvider.state('authors', {
                 url: '/authors',
                 abstract: true,
@@ -30,6 +14,10 @@
                         controller: 'authorCtrl',
                         controllerAs: 'ctrl'
                     }
+                }
+                , 
+                data: {
+                    requireLogin: false
                 }
             }).state('authorsList', {
                 url: '/list',
@@ -65,9 +53,9 @@
                         templateUrl: basePath + '/new/authors.new.html',
                         controller: 'authorNewCtrl'
                     }
-                },
-                resolve: {
-                    loginRequired: loginRequired
+                }, 
+                data: {
+                    requireLogin: true
                 }
             }).state('authorUpdate', {
                 url: '/update/{authorId:int}',
@@ -80,9 +68,9 @@
                         templateUrl: basePath + '/new/authors.new.html',
                         controller: 'authorUpdateCtrl'
                     }
-                },
-                resolve: {
-                    loginRequired: loginRequired
+                }, 
+                data: {
+                    requireLogin: true
                 }
             }).state('authorDelete', {
                 url: '/delete/{authorId:int}',
@@ -95,9 +83,9 @@
                         templateUrl: basePath + '/delete/author.delete.html',
                         controller: 'authorDeleteCtrl'
                     }
-                },
-                resolve: {
-                    loginRequired: loginRequired
+                }, 
+                data: {
+                    requireLogin: true
                 }
             });
         }]);

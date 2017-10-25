@@ -1,6 +1,6 @@
 (function (ng) {
     var mod = ng.module("loginModule");
-    mod.controller('logoutCtrl', ['$scope', '$state', function ($scope, $state) {
+    mod.controller('logoutCtrl', ['$rootScope', '$state', function ($rootScope, $state) {
             if (sessionStorage.getItem("username")) {
                 sessionStorage.clear();
             } else {

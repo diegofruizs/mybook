@@ -24,6 +24,9 @@
 
             $stateProvider.state('login', {
                 url: '/login',
+                data: {
+                    requireLogin: false
+                },
                 views: {
                     'mainView': {
                         templateUrl: basePath + 'login.html',
@@ -35,6 +38,10 @@
                 }
             }).state('logout', {
                 url: '/logout',
+                data: {
+                    requireLogin: false
+                }
+                ,
                 views: {
                     'mainView': {
                         templateUrl: basePath + 'logout.html',
