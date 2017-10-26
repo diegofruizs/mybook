@@ -15,7 +15,7 @@
                         controllerAs: 'ctrl'
                     }
                 }
-                , 
+                ,
                 data: {
                     requireLogin: false
                 }
@@ -26,7 +26,10 @@
                     'listView': {
                         templateUrl: basePath + 'authors.list.html'
                     }
+                }, data: {
+                    requireLogin: false
                 }
+
             }).state('authorDetail', {
                 url: '/{authorId:int}/detail',
                 parent: 'authors',
@@ -53,9 +56,10 @@
                         templateUrl: basePath + '/new/authors.new.html',
                         controller: 'authorNewCtrl'
                     }
-                }, 
+                },
                 data: {
                     requireLogin: true
+                 
                 }
             }).state('authorUpdate', {
                 url: '/update/{authorId:int}',
@@ -68,9 +72,10 @@
                         templateUrl: basePath + '/new/authors.new.html',
                         controller: 'authorUpdateCtrl'
                     }
-                }, 
+                },
                 data: {
                     requireLogin: true
+                   
                 }
             }).state('authorDelete', {
                 url: '/delete/{authorId:int}',
@@ -83,9 +88,10 @@
                         templateUrl: basePath + '/delete/author.delete.html',
                         controller: 'authorDeleteCtrl'
                     }
-                }, 
+                },
                 data: {
                     requireLogin: true
+                   
                 }
             });
         }]);

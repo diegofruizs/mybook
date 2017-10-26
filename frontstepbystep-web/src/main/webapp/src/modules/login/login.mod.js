@@ -10,7 +10,7 @@
             $urlRouterProvider.otherwise("/login");
 
             /**
-             * Helper auth functions
+             * Helper auth functions to skip the state /login when you are logged in.
              */
             var skipIfLoggedIn = ['$q', '$rootScope', function ($q, $rootScope) {
                     var deferred = $q.defer();

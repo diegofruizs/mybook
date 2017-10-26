@@ -22,8 +22,8 @@
                                 <td id="{{$index}}-name"><a ui-sref="authorDetail({authorId: author.id})">{{author.name}}</a></td>
                                 <td id="{{$index}}-birthDate">{{author.birthDate| date:'yyyy-MM-dd'}}</td>
                                 <td ng-if="isAuthenticated()" id="{{$index}}-actions">
-                                    <a ng-if="isRol(rol)" id="{{$index}}-edit" class="btn btn-default btn-sm" ui-sref="authorUpdate({authorId: author.id})"><span class="glyphicon glyphicon-edit"></span></a>
-                                    <a class="btn btn-danger btn-sm" ui-sref="authorDelete({authorId: author.id})"><span class="glyphicon glyphicon-trash"></span></a>
+                                    <a  id="{{$index}}-edit" class="btn btn-default btn-sm" ui-sref="authorUpdate({authorId: author.id})"><span class="glyphicon glyphicon-edit"></span></a>
+                                    <a  id="{{$index}}-delete" class="btn btn-danger btn-sm" ui-sref="authorDelete({authorId: author.id})"><span class="glyphicon glyphicon-trash"></span></a>
                                 </td>
                             </tr>
                         </tbody>
