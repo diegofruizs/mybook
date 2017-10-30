@@ -16,10 +16,11 @@
             $qProvider.errorOnUnhandledRejections(false);
         }]);
     app.run(function ($rootScope, $state) {
-
+        
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
 
             var requireLogin = toState.data.requireLogin;
+            var roles = toState.data.roles;
             $rootScope.isAuthenticated = function () {
 
                 if (sessionStorage.getItem("username") != null) {
@@ -29,7 +30,13 @@
                     return false;
                 }
             };
-
+            $rootScope.hasPermissions = function () {               
+                if (($rootScope.isAuthenticated) && ( roles.indexOf(sessionStorage.getItem("rol")) > -1)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            };
 
             if (requireLogin && (sessionStorage.getItem("username") === null)) {
                 event.preventDefault();

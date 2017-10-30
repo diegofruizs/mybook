@@ -12,7 +12,7 @@
             $scope.autenticar = function () {
                 var flag = false;
                 for (var item in $scope.users) {
-                    if ($scope.users[item].user == $scope.username && $scope.users[item].password == $scope.password && $scope.users[item].roles[0] == $scope.rol) {
+                    if ($scope.users[item].user == $scope.username && $scope.users[item].password == $scope.password && $scope.users[item].rol == $scope.rol) {
                         flag = true;
                         $scope.user = $scope.users[item];
                         $state.go('booksList', {}, {reload: true});
@@ -25,7 +25,7 @@
                     sessionStorage.token = $scope.user.token;
                     sessionStorage.setItem("username", $scope.user.user);
                     sessionStorage.setItem("name", $scope.user.name);
-                    sessionStorage.setItem("rol", $scope.user.roles[0]);
+                    sessionStorage.setItem("rol", $scope.user.rol);
                     $rootScope.currentUser = $scope.user.name; 
                 }
             };

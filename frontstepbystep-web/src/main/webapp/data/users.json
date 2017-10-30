@@ -5,9 +5,8 @@
         "user": "diegofruizs",
         "password": "diego123",
         "birthDate": "1991/08/23",
-        "roles": [
-            "assistant"
-        ],
+        "rol": 
+            "assistant",
         "token": 123
     }
     ,
@@ -17,9 +16,7 @@
         "user": "rubby",
         "password": "rubby123",
         "birthDate": "1990/06/17",
-        "roles": [
-            "admin"
-        ],
+        "rol": "admin",
         "token": 456
     }
 ]

@@ -1,5 +1,7 @@
 <div class="center-block well text-center">
-    <h1>Are you sure?</h1>
+    <div ng-if="isAuthenticated() && hasPermissions()"><h3>Are you sure?</h3>
     <button id="confirm-delete" ng-click="deleteAuthor()" class="btn btn-danger">Delete</button>
     <a id="cancel-delete" ui-sref="authorsList" class="btn btn-info">Cancel</a>
+    </div>
+    <div ng-if="isAuthenticated() && !hasPermissions()"><h3>You do not have permissions for this action.</h3>
 </div>

@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="panel-group">
+    <div ng-if="isAuthenticated() && hasPermissions()" class="panel-group">
         <div class="panel panel-primary">
             <div class="panel-heading"><label ng-if="!edit" id="createAuthor">Create new Author</label>
                 <label ng-if="edit" id="editAuthor">Edit Author</label></div>
@@ -73,6 +73,7 @@
             </div>
         </div>
     </div>
+   <div ng-if="isAuthenticated() && !hasPermissions()"><h3>You do not have permissions for this action.</h3></div>
 </div>
 
 
