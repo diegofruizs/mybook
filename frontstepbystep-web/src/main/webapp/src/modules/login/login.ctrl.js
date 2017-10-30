@@ -4,7 +4,7 @@
         function ($scope, $http, $state, $rootScope) {
 
             $scope.user = {};
-            // $http retorna un apromesa que aquí no se está manejando si viene con error.
+            
             $http.get('data/users.json').then(function (response) {
                 $scope.users = response.data;
             });
@@ -20,6 +20,10 @@
                     }
                 }
                 if (!flag) {
+                    console.log($scope.users);
+                    console.log($scope.username);
+                    console.log($scope.password);
+                    console.log($scope.rol);
                     $rootScope.alerts.push({type: "danger", msg: "Incorrect username or password."});
                 } else {
                     sessionStorage.token = $scope.user.token;

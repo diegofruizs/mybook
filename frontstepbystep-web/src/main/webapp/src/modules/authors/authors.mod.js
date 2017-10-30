@@ -73,7 +73,7 @@
                 },
                 data: {
                     requireLogin: true,
-                    roles: ['admin', 'assitant']
+                    roles: ['admin', 'assistant']
                 }
             }).state('authorDelete', {
                 url: '/delete/{authorId:int}',
