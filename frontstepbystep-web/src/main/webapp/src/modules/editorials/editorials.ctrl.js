@@ -7,7 +7,7 @@
                 $scope.editorialsRecords = response.data;
             });
 
-            if ($state.params.editorialsId !== undefined) {
+            if (($state.params.editorialsId !== undefined)&& ($state.params.editorialsId !== null)) {
                 $http.get(editorialContext + '/' + $state.params.editorialsId).then(function (response) {
                     $scope.booksRecords = response.data.books;
                     $scope.currentEditorial = response.data;
@@ -16,4 +16,4 @@
         }
     ]);
 }
-)(angular);
+)(window.angular);

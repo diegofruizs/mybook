@@ -9,18 +9,6 @@
 
             $urlRouterProvider.otherwise("/login");
 
-            /**
-             * Helper auth functions to skip the state /login when you are logged in.
-             */
-            var skipIfLoggedIn = ['$q', '$rootScope', function ($q, $rootScope) {
-                    var deferred = $q.defer();
-                    if ($rootScope.isAuthenticated()) {
-                        deferred.reject();
-                    } else {
-                        deferred.resolve();
-                    }
-                    return deferred.promise;
-                }];
 
             $stateProvider.state('login', {
                 url: '/login',
@@ -32,14 +20,12 @@
                         templateUrl: basePath + 'login.html',
                         controller: 'loginCtrl'
                     }
-                },
-                resolve: {
-                    skipIfLoggedIn: skipIfLoggedIn
                 }
             }).state('logout', {
                 url: '/logout',
                 data: {
-                    requireLogin: false
+                    requireLogin: false,
+                    roles: []
                 }
                 ,
                 views: {

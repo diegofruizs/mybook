@@ -15,7 +15,12 @@
                         controllerAs: 'ctrl'
                     }
                 }
-                
+                ,
+                data: {
+                    requireLogin: false,
+                    roles: ['admin', 'assistant']
+                }
+
             }).state('authorsList', {
                 url: '/list',
                 parent: 'authors',
@@ -23,10 +28,6 @@
                     'listView': {
                         templateUrl: basePath + 'authors.list.html'
                     }
-                },
-                data: {
-                    requireLogin: false,
-                    roles: ['admin', 'assistant']
                 }
             }).state('authorDetail', {
                 url: '/{authorId:int}/detail',

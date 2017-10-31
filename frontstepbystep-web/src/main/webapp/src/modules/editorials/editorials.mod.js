@@ -8,15 +8,17 @@
             $stateProvider.state('editorials', {
                 url: '/editorials',
                 abstract: true,
-                data: {
-                    requireLogin: false
-                },
                 views: {
                     'mainView': {
                         templateUrl: basePath + 'editorials.html',
                         controller: 'editorialCtrl',
                         controllerAs: 'ctrl'
                     }
+                }
+                ,
+                data: {
+                    requireLogin: false,
+                    roles: []
                 }
             }).state('editorialsList', {
                 url: '/list',

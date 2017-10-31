@@ -4,29 +4,29 @@
             <div class="panel-heading"><label ng-if="!edit" id="createAuthor">Create new Author</label>
                 <label ng-if="edit" id="editAuthor">Edit Author</label></div>
             <div class="panel-body">
-                <form ng-submit="createAuthor()" name="author">
+                <form name="author">
                     <div class="form-group row">
                         <div class="form-group col-md-6">
                             <label for="authorName" class="col-sm-2">Name:</label>
-                            <input id="authorName" required ng-model="authorName" class="col-sm-6"/>
+                            <input id="authorName" required ng-model="data.name" class="col-sm-6"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="form-group col-md-6">
                             <label for="authorBirthDate" class="col-sm-2">Birth Date:</label>
-                            <input type="date" id="authorBirthDate" placeholder="DD/MM/YYYY" required ng-model="authorBirthDate" class="col-sm-6"/>
+                            <input type="date" id="authorBirthDate" placeholder="DD/MM/YYYY" required ng-model="data.birthDate" class="col-sm-6"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="form-group col-md-6">
                             <label for="authorDescription" class="col-sm-2">Biography:</label>
-                            <textarea id="authorDescription" required ng-model="authorDescription" class="col-sm-6"></textarea>
+                            <textarea id="authorDescription" required ng-model="data.description" class="col-sm-6"></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="form-group col-md-6">
                             <label for="authorImage" class="col-sm-2">Image:</label>
-                            <input id="authorImage" required ng-model="authorImage" class="col-sm-6"/>
+                            <input id="authorImage" required ng-model="data.image" class="col-sm-6"/>
                         </div>
                     </div>
                     <div ng-if="edit" class="panel-group" id="theBooks">
@@ -64,7 +64,7 @@
                     </div> 
                     <div class="form-group row">
                         <div class="form-group col-sm-12">
-                            <input ng-show="author.$valid" type="submit" value="Save" class="btn btn-success"/>
+                            <input ng-show="author.$valid" ng-click="createAuthor()" value="Save" class="btn btn-success"/>
                             <a class="btn btn-info" ui-sref="authorsList">Cancel</a>
                         </div>
                     </div>

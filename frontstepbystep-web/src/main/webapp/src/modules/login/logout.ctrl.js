@@ -9,5 +9,5 @@
         }
     ]);
 }
-)(angular);
+)(window.angular);
 

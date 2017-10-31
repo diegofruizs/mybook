@@ -7,7 +7,7 @@
                 $scope.booksRecords = response.data;
             });
             
-            if ($state.params.bookId !== undefined) {
+            if (($state.params.bookId !== undefined)&& ($state.params.bookId !== null)) {
                 $http.get(booksContext + '/' + $state.params.bookId).then(function (response) {
                     $scope.currentBook = response.data;
                 });
@@ -15,4 +15,4 @@
         }
     ]);
 }
-)(angular);
+)(window.angular);

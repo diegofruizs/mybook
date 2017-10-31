@@ -7,7 +7,7 @@
                 $scope.authorsRecords = response.data;
             });
 
-            if ($state.params.authorId !== undefined) {
+            if (($state.params.authorId !== undefined) && ($state.params.authorId !== null)) {
                 $http.get(authorsContext + '/' + $state.params.authorId).then(function (response) {
                     $scope.booksRecords = response.data.books;
                     $scope.currentAuthor = response.data;
@@ -16,4 +16,4 @@
         }
     ]);
 }
-)(angular);
+)(window.angular);

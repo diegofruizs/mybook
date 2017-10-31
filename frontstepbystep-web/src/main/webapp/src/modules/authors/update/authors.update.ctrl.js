@@ -3,9 +3,11 @@
             var mod = ng.module("authorModule");
             mod.constant("authorsContext", "api/authors");
             mod.constant("booksContext", "api/books");
-            mod.controller('authorUpdateCtrl', ['$scope', '$http', 'authorsContext', '$state', 'booksContext', '$rootScope', '$filter',
-                function ($scope, $http, authorsContext, $state, booksContext, $rootScope, $filter) {
+            mod.controller('authorUpdateCtrl', ['$scope', '$http', 'authorsContext', '$state', 'booksContext', '$rootScope',
+                function ($scope, $http, authorsContext, $state, booksContext, $rootScope) {
                     $rootScope.edit = true;
+                    
+                    $scope.data = {};
 
                     var idAuthor = $state.params.authorId;
 
@@ -18,10 +20,10 @@
                     //Consulto el autor a editar.
                     $http.get(authorsContext + '/' + idAuthor).then(function (response) {
                         var author = response.data;
-                        $scope.authorName = author.name;
-                        $scope.authorBirthDate = new Date(author.birthDate);
-                        $scope.authorDescription = author.description;
-                        $scope.authorImage = author.image;
+                        $scope.data.name = author.name;
+                        $scope.data.birthDate = new Date(author.birthDate);
+                        $scope.data.description = author.description;
+                        $scope.data.image = author.image;
                         $scope.allBooksAuthor = author.books;
                         $scope.mergeBooks($scope.allBooksAuthor);
                     });
@@ -93,12 +95,7 @@
                          en el array que tiene todos los books y así saber como queda la lista final de los books asociados al autor.
                          */
                         $scope.newBooks();
-                        $http.put(authorsContext + "/" + idAuthor, {
-                            name: $scope.authorName,
-                            birthDate: $scope.authorBirthDate,
-                            description: $scope.authorDescription,
-                            image: $scope.authorImage
-                        }).then(function (response) {
+                        $http.put(authorsContext + "/" + idAuthor, $scope.data).then(function (response) {
                             if (idsBook.length >= 0) {
                                 $http.put(authorsContext + "/" + response.data.id + "/books", $scope.allBooksAuthor).then(function (response) {
                                 });
@@ -121,4 +118,4 @@
                 }
             ]);
         }
-)(angular);
+)(window.angular);
